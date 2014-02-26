@@ -3,23 +3,6 @@
 $page_title = 'Register!';
 include './include/header.inc';
 
-
-function userExists( $username ) {
-
-
-	$query = "SELECT * FROM userauth WHERE user_name ='" .$username ."'";
-
-	$result = mysql_query( $query );
-
-	if ( $result ) {   //query worked
-
-		return ( mysql_num_rows( $result ) >0 ) ;  //TRUE if row count is greater than 1, i.e. user already in the table
-
-	}
-
-}
-
-
 ?>
 
 <div class="container">
@@ -122,7 +105,7 @@ if ( isset( $_POST['submit'] ) ) { // Handle the form.
 
 
 
-		$query = "INSERT INTO userauth (first_name, last_name, user_name, user_pass, pass_hint, email_address, user_ip, signup_date) VALUES('$first_name', '$last_name', '$user_name','$password_1','$passhint', '$email_address','$ip', now())";
+		$query = "INSERT INTO users (first_name, last_name, user_name, password, hint, email_address, created) VALUES('$first_name', '$last_name', '$user_name','$password_1','$passhint', '$email_address', now())";
 
 		$result = mysql_query( $query );
 
@@ -137,6 +120,7 @@ if ( isset( $_POST['submit'] ) ) { // Handle the form.
 			$_SESSION['sess_f_name'] = $first_name;
 			$_SESSION['sess_l_name'] = $last_name;
 			$_SESSION['sess_email'] = $email_address;
+			$_SESSION['sess_userlevel'] = "user";  //default status set in the db after registration
 			
 			header( "Location: http://".$_SERVER['HTTP_HOST'].dirname( $_SERVER['PHP_SELF'] )."/"."complete.php" );
 			exit();
