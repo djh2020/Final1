@@ -3,7 +3,6 @@ session_start();
 ob_start();
 require_once('db_connect.php');
 require_once('helper.php');
-//require_once('functions.php');
 
 ?>
 <!DOCTYPE html>
@@ -44,21 +43,22 @@ require_once('helper.php');
             <li <?php echo "class='" .getState('/Final1/build.php') ."'" ?>><a href="./build.php">Build</a></li>
             <li <?php echo "class='" .getState('/Final1/admin.php') ."'" ?>> <a href="./admin.php">Admin</a></li>
           </ul>
-          <form class="navbar-form navbar-right" role="form">
+          <form  action="./login.php" method="post" class="navbar-form navbar-right" role="form">
                 <div class="form-group">
                   <!--<input type="text" placeholder="User Name" class="form-control">-->
                   <?
                     $data = getStatusArray();
                     $link =  $data['link'];
                     $classState =  $data['classState'];
+                    $userLevel = $data['userLevel'];
                     
                   ?>
-                  <input <?php echo "class='form-control " .$classState           ."'" ?> type="text" placeholder="Username" >
+                  <input <?php echo "class='form-control " .$classState           ."'" ?> type="text" placeholder="Username" name="user_name">
                 </div>
                 <div class="form-group">
-                  <input <?php echo "class='form-control " .$classState           ."'" ?> type="password" placeholder="Password" >
+                  <input <?php echo "class='form-control " .$classState           ."'" ?> type="password" placeholder="Password" name="user_pass">
                 </div>
-                <button type="submit" <?php echo "class='btn btn-success " .$classState           ."'" ?>>
+                <button type="submit" name="Submit" <?php echo "class='btn btn-success " .$classState           ."'" ?>>
 
 
                   Sign in
@@ -69,7 +69,8 @@ require_once('helper.php');
 
 
               </form>
-        </div><!-- /.nav-collapse -->
+
+       </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </div><!-- /.navbar -->
 
