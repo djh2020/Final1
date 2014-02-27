@@ -65,8 +65,13 @@ require_once('helper.php');
                 </button>
                 <!--<a class="" href="#registrationModal">&nbsp;&nbsp;Register (New User)</a>-->
                 <!--<a class="" href="./register.php">&nbsp;&nbsp;Register (New User)</a>-->
-                  <?php echo $link ?>
+                 
+                    <?php echo "<strong>" .$link ."</strong>"?> 
+                 
+                 
+               
 
+                    
 
               </form>
 
