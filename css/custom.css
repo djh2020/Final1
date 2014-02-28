@@ -1,0 +1,20 @@
+a.disabled {
+
+text-decoration:none;
+color:gray;
+cursor:not-allowed;
+}
+
+a.disabled:hover {
+
+text-decoration:none;
+color:gray;
+cursor:not-allowed;
+}
+
+a.disabled:visited {
+
+text-decoration:none;
+color:gray;
+cursor:not-allowed;
+}

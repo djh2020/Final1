@@ -6,4 +6,11 @@ $(function() {
             location.href = this.href;
         }
     });
+
+    $('a.disabled').click(function(e) {
+        e.preventDefault();
+        
+    });
+
+
 });

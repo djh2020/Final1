@@ -28,13 +28,14 @@ function getStatusArray()  //see if someone has a session
         
         if(isset($_SESSION['sess_f_name'])){  //if they are logged in or registered
               
+                //$out['link'] = '<a class="" href="./goodbye.php">&nbsp;&nbsp; ' .$_SESSION['sess_f_name'] ." " .$_SESSION['sess_l_name'] .' (logout) </a>';
                 $out['link'] = '<a class="" href="./goodbye.php">&nbsp;&nbsp; ' .$_SESSION['sess_f_name'] ." " .$_SESSION['sess_l_name'] .' (logout) </a>';
                 $out['classState'] = "hidden";
                 $out['userLevel'] = isAdmin();
                 
                 return $out;
              
-              }else{
+              }else{  //otherwise show this in the top right
                 
                 $out['link'] = '<a class="" href="./register.php">&nbsp;&nbsp;Register (New User)</a>';
                 $out['classState'] = " ";

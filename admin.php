@@ -14,7 +14,7 @@ include './include/header.inc';
 
 
 <div class="container">
-<table class="table table-striped ">
+<table class="table table-hover table-striped ">
       <thead>
         <tr>
           <th>#</th>
@@ -71,8 +71,16 @@ if ( $result ) { // If it ran OK, display the records.
 		echo $row["id"];
 		echo "</td>";
 
+
+
 		echo  "<td>";
-		echo " <a href='./edit.php?id="  .  $row["id"]    ."'>Edit</a>" ."&nbsp;"  ." <a class='confirm' href='./delete.php?id="  .  $row["id"]    ."'>Delete</a>";
+		if (getAdminStatus()=='you are an admin') {
+			echo " <a class='' href='./edit.php?id="  .  $row["id"]    ."'>Edit</a>" ."&nbsp;"  ." <a class='confirm' href='./delete.php?id="  .  $row["id"]    ."'>Delete</a>";
+		} else {
+
+			echo " <a class='disabled' href='./edit.php?id="  .  $row["id"]    ."'>Edit</a>" ."&nbsp;"  ." <a class='disabled' href='./delete.php?id="  .  $row["id"]    ."'>Delete</a>";
+		}
+		
 		echo "</td>";
 		echo "</tr>";  // end row
 
@@ -93,21 +101,10 @@ echo "</tbody>";
 
 
 
-</div>
-
-<!--
-
-php below
-
-
--->
-
-
-
 
 </div>
 
-<a href="http://example.com" class="btn disabled">My Disabled Link</a>
+
 
 <?php
 include './include/footer.inc';
