@@ -31,7 +31,7 @@ include './include/header.inc';
 
   <?php
 
-$query = "SELECT id, first_name, last_name, user_name, type , created FROM users";
+$query = "SELECT id, first_name, last_name, user_name, type , created ,password FROM users";
 
 $result = mysql_query( $query ); // Run the query. should return true if a result resource is returned.
 
