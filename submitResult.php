@@ -22,7 +22,7 @@ print_r($_SESSION);
 
 echo "</pre>";
 
-
+echo "survey id is " .$_GET['survey_id'] ;
 
 
 
@@ -30,14 +30,18 @@ echo "</pre>";
 
 // get user id
 
-if ( $_SESSION['sess_userID'] ) {
+if ( $_SESSION['sess_userID'] ) {   
 
-		$userArray = getUserInfo($_SESSION['sess_userID']);
+		$userArray = getUserInfo($_SESSION['sess_userID']);  // Get all user information
 		echo "<pre>";
 		print_r($userArray);
 		echo "</pre>";
-		
-		echo $userArray[0]["id"];
+		createEntryInResponseTable($userArray[0]["id"],   $_GET['survey_id']       ,$userArray[0]["email_address"]);  // create entry in response table
+
+
+						//  need id number from result.....
+
+						
 
 	}  else {
 
@@ -45,7 +49,31 @@ if ( $_SESSION['sess_userID'] ) {
 
 	}
 
+function createEntryInResponseTable ($userID,$surveyID,$userEmail="no email address provided") {
 
+				  			$success = FALSE;
+
+				  			$query = "INSERT INTO `responses` (`id`,  `users_id`, `survey_id`, `email`, `created`, `modified`) VALUES (NULL,'"  .$userID ."','"   .$surveyID  ."','"  .$userEmail ."',"  ." now(), now());";
+
+				  			$result = @mysql_query( $query );
+
+						  			if ($result)  {
+
+						  						echo $query;
+						  						echo "<br>";
+						  						echo "last id is" ;
+						  						echo mysql_insert_id();
+
+						  			} else {
+
+						  				echo "insert Failed";
+						  			}
+
+
+				  			
+				  			
+
+						}
 
 
 //get survey id

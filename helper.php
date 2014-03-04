@@ -5,6 +5,9 @@
 date_default_timezone_set('America/Los_Angeles'); //Gets rid of timezone error  
 
 
+
+
+
 function getState($thisPage) {      //used to control class on nav bar, active / inactive determines whether the link is highlighted.
   $retVal = ($_SERVER['PHP_SELF'] == $thisPage) ? "active" : "inactive" ;
   return $retVal;

@@ -116,6 +116,7 @@ $questionArray = getSurveyQuestions($id);  //get survey questions
 
 	</tbody>
   </table>
+  <input name="survey_id" type="hidden" value=" <?php echo $surveyArray[0]["id"]; ?>     "></input>
   <button type="submit" class="btn btn-success btn-block" >
 		Submit
 
