@@ -3,29 +3,31 @@
 <title>UNAUTHORIZED</title>
 <style type="text/css">
 body {
-	font-family: "Console", console, monospace;
-	font-size: 16px;
-	line-height: 16px;
-	letter-spacing: -5;
+    font-family: "Console", console, monospace;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -5;
 }
-
-div {
-	display: block;
-	margin: 100px auto;
-	width: 250px;
-	font-family:"Lucida Console", Monaco, monospace
-	line-height:22px;
+ div {
+    display: block;
+    margin: 100px auto;
+  margin-bottom: 0;
+    width: 250px;
+    font-family:"Lucida Console", Monaco, monospace
+    line-height:22px;
 }
-
-h1{
+ h1{
+    font-size: 40px;
+    margin: 0 auto;
+    display: block;
+    width: 250px;
     -webkit-animation: color-change 1s infinite;
     -moz-animation: color-change 1s infinite;
     -o-animation: color-change 1s infinite;
     -ms-animation: color-change 1s infinite;
     animation: color-change 1s infinite;
 }
-
-@-webkit-keyframes color-change {
+ @-webkit-keyframes color-change {
     0% { color: red; }
     50% { color: blue; }
     100% { color: red; }
@@ -50,27 +52,60 @@ h1{
     50% { color: blue; }
     100% { color: red; }
 }
-
-</style>
+ </style>
 </head>
 <body>
-
-
-<div>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#180;&#175;/) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,/&#175;&nbsp;&nbsp;/ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#180;&#175;/'&nbsp;&nbsp;&nbsp;'/&#180;&#175;&#175;`&#183;&#184; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/'/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#168;&#175;\ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('(&nbsp;&nbsp;&nbsp;&#180;&nbsp;&nbsp;&nbsp;&#180;&nbsp;&nbsp;&nbsp;&nbsp; &#175;~/'&nbsp;&nbsp;&nbsp;') <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _&nbsp;&#183;&#180; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;<br>
-
-	<h1>UNAUTHORIZED</h1>
-</div>
-
+<div id="THE-FINGER"></div>
+<h1>UNAUTHORIZED</h1>
 </body>
+<script>
+  function fingerHTML(x,y){
+    var maxy = 6;
+    var html = '';
+    var xoffset = '';
+    var yoffset = '';
+    if(y > maxy)
+      y = maxy;
+    for(var i=0; i<x; i++){
+      xoffset += "&nbsp;";
+    }
+    for(var i=0; i<maxy; i++){
+      yoffset += "<br>";
+    }
+    html+= (maxy-y)*(-4) !== 0 ? yoffset.slice((maxy-y)*(-4)) : '';
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#180;&#175;/)<br/>";
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,/&#175;&nbsp;&nbsp;/<br/>";
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/<br/>";
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#180;&#175;/'&nbsp;&nbsp;&nbsp;'/&#180;&#175;&#175;`&#183;&#184;<br/>";
+    html+=xoffset+"&nbsp;&nbsp;/'/&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&#168;&#175;\\<br/>";
+    html+=xoffset+"('(&nbsp;&nbsp;&nbsp;&#180;&nbsp;&nbsp;&nbsp;&#180;&nbsp;&nbsp;&nbsp;&nbsp; &#175;~/'&nbsp;&nbsp;&nbsp;&nbsp;')<br/>";
+    html+=xoffset+"&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<br/>";
+    html+=xoffset+"&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _&nbsp;&#183;&#180;<br/>";
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br/>";
+    html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;<br/>";
+    for(var i=0; i<y; i++){
+      for(var j=0; j<i; j++)
+        html+="&nbsp;&nbsp;";
+      html+=xoffset+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;<br>";
+    }
+    return html;
+  }
+
+  document.getElementById("THE-FINGER").innerHTML=fingerHTML(6,0);
+  var interval = 200;
+  setInterval(function(){
+                          document.getElementById("THE-FINGER").innerHTML=fingerHTML(6,0);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 4,1)}, 1*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 2,2)}, 2*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 0,3)}, 3*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 2,4)}, 4*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 4,5)}, 5*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 6,6)}, 6*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 8,5)}, 7*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML(10,4)}, 8*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML(12,3)}, 9*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML(10,2)},10*interval);
+    setTimeout(function(){document.getElementById("THE-FINGER").innerHTML=fingerHTML( 8,1)},11*interval);
+  },12*interval);
+</script>
 </html>

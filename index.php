@@ -51,7 +51,7 @@ include './include/header.inc';
 							Complete a survey, make your vote count.
 						</p>
 						<p>
-							<a class="btn btn-default" href="./admin.php" role="button">View details &raquo;</a>
+							<a class="btn btn-default" href="./participate.php" role="button">View details &raquo;</a>
 						</p>
 					</div><!-- /.col-lg-4 -->
 					<div class="col-sm-3">

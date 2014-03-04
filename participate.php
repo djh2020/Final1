@@ -1,6 +1,6 @@
 <?php
 // Set the page title and include the HTML header.
-$page_title = 'View';
+$page_title = 'Particpate';
 include './include/header.inc';
 
 
@@ -8,7 +8,7 @@ include './include/header.inc';
 ?>
 <div class="container">
 
-	<h1>View</h1>
+	<h1>Participate</h1>
  <hr />
 </div>
 
@@ -26,7 +26,7 @@ include './include/header.inc';
           <th>Status</th>
           <th>Start Date</th>
           <th>End Date</th>
-          <th>Link</th>
+          <th>Action</th>
           </tr>
       </thead>
       <tbody>
@@ -65,7 +65,7 @@ if ( $result ) { // If it ran OK, display the records.
 		echo "</td>";
 
 		echo  "<td>";
-		echo " <a class='enabled' href='./view_survey_details.php?id="  .  $row["id"]    ."'>Survey Details</a>";
+		echo " <a class='enabled' href='./particpate_in_survey.php?id="  .  $row["id"]    ."'>Participate</a>";
 		echo "</td>";
 		echo "</tr>";  // end row
 
@@ -83,8 +83,6 @@ mysql_close(); // Close the database connection.
 echo "</tbody>";
     echo "</table>";
 ?>
-
-
 
 
 

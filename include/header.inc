@@ -43,6 +43,7 @@ require_once('helper.php');
             <li <?php echo "class='" .getState('/Final1/index.php') ."'" ?>><a href="./index.php">Home</a></li>
             <li <?php echo "class='" .getState('/Final1/view.php') ."'" ?>><a href="./view.php">View</a></li>
             <li <?php echo "class='" .getState('/Final1/build.php') ."'" ?>><a href="./build.php">Build</a></li>
+            <li <?php echo "class='" .getState('/Final1/participate.php') ."'" ?>><a href="./participate.php">Participate</a></li>
             <li <?php echo "class='" .getState('/Final1/admin.php') ."'" ?>> <a href="./admin.php">Admin</a></li>
           </ul>
           <form  action="./login.php" method="post" class="navbar-form navbar-right" role="form">

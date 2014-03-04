@@ -27,6 +27,7 @@ if(isset($_POST['user_name'])){
 									$_SESSION['sess_l_name'] = $row[3];
 									$_SESSION['sess_email'] = $row[4];
 									$_SESSION['sess_userlevel'] = $row[1];
+									$_SESSION['sess_userID'] = $row[0];
 									$hash = $row[6];
 											if (password_verify($pass, $hash)) {  //password is valid  $pass = what was provided as input, $hash is what is stored in db
 							
