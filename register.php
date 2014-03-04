@@ -112,6 +112,7 @@ if ( isset( $_POST['submit'] ) ) { // Handle the form.
 
 		if ( $result ) {
 
+			$userIdFromTable = mysql_insert_id();   //return the id from the response table. 
 
 			// Send an email.
 			//$body = "Thank you for registering with our site!\nYour username is ". $_POST['user_name'] ." and your password is ". $_POST['password_1'] .".\n\nSincerely,\nUs";
@@ -121,6 +122,7 @@ if ( isset( $_POST['submit'] ) ) { // Handle the form.
 			$_SESSION['sess_f_name'] = $first_name;
 			$_SESSION['sess_l_name'] = $last_name;
 			$_SESSION['sess_email'] = $email_address;
+			$_SESSION['sess_userID'] = $userIdFromTable;
 			$_SESSION['sess_userlevel'] = "user";  //default status set in the db after registration
 			
 			header( "Location: http://".$_SERVER['HTTP_HOST'].dirname( $_SERVER['PHP_SELF'] )."/"."complete.php" );

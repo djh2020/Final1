@@ -28,7 +28,7 @@ $id = $_GET['id'];
           <th>Status</th>
           <th>Start Date</th>
           <th>End Date</th>
-         
+
           </tr>
       </thead>
       <tbody>
@@ -46,10 +46,11 @@ if ( $result ) { // If it ran OK, display the records.
 	//echo "<ol>";
 	while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) ) {
 
+		echo "<tr>";
 		echo  "<td>";
 		echo $row["description"];
 		echo "</td>";
-		
+
 		echo  "<td>";
 		echo $row["id"];
 		echo "</td>";
@@ -57,19 +58,20 @@ if ( $result ) { // If it ran OK, display the records.
 		echo  "<td>";
 		echo $row["status"];
 		echo "</td>";
-		
+
 		echo  "<td>";
 		echo $row["start_date"];
 		echo "</td>";
-		
+
 		echo  "<td>";
 		echo $row["end_date"];
 		echo "</td>";
+		echo "</tr>";
 
 		//echo "<li><div id='"  .$i     ."'>". $row["user_name"] .",". $row["first_name"] .",". $row["last_name"] .",". $row["type"] ."</div></li>";
 		$i++;
 	}
-	
+
 	mysql_free_result( $result ); // Free up the resources.
 
 } else { // If it did not run OK.
@@ -78,7 +80,7 @@ if ( $result ) { // If it ran OK, display the records.
 
 //mysql_close(); // Close the database connection.
 echo "</tbody>";
-    echo "</table>";
+echo "</table>";
 ?>
 
 
@@ -102,7 +104,7 @@ echo "</tbody>";
           <th>Sequence</th>
           <th>Question</th>
           <th>Description</th>
-         
+
           </tr>
       </thead>
       <tbody>
@@ -125,10 +127,11 @@ if ( $result ) { // If it ran OK, display the records.
 
 		$questionArray[] = $row;  //build an array of quesitons, used below.
 
+		echo "<tr>";
 		echo  "<td>";
 		echo $row["id"];
 		echo "</td>";
-		
+
 		echo  "<td>";
 		echo $row["sequence"];
 		echo "</td>";
@@ -136,18 +139,16 @@ if ( $result ) { // If it ran OK, display the records.
 		echo  "<td>";
 		echo $row["question"];
 		echo "</td>";
-		
+
 		echo  "<td>";
 		echo $row["description"];
 		echo "</td>";
-		
-		
 		echo "</tr>";  // end row
 
 		//echo "<li><div id='"  .$i     ."'>". $row["user_name"] .",". $row["first_name"] .",". $row["last_name"] .",". $row["type"] ."</div></li>";
 		$i++;
 	}
-	
+
 	mysql_free_result( $result ); // Free up the resources.
 
 } else { // If it did not run OK.
@@ -156,7 +157,7 @@ if ( $result ) { // If it ran OK, display the records.
 
 //mysql_close(); // Close the database connection.
 echo "</tbody>";
-    echo "</table>";
+echo "</table>";
 ?>
 
 
@@ -176,125 +177,70 @@ echo "</tbody>";
 
   <?php
 
-//get all response answers and put them in an array/  
+	//get all response answers and put them in an array/
+  $responseAnswersArray = getRsponseAndAnswerTable();
 
-$query = "SELECT * FROM response_answers";   //
+  //get the responses
+	$responsesArray = getResponsesTable();  
 
-
-
-$result = @mysql_query( $query ); // Run the query. should return true if a result resource is returned.
-
-		if ( $result ) { // If it ran OK, continue
-
-			while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) ) {   // loop through each reponse answer
-
-				$responseAnswersArray[] = $row;
-
-			}   //finish builind array
-
-			mysql_free_result( $result ); // Free up the resources.
-			$query = NULL;  // clear query
-
-			$query = "SELECT id, survey_id, users_id, email FROM responses WHERE survey_id = " . $id ;  //get user_id's of people that have responded.
-
-			$result = @mysql_query( $query ); // Run the query. should return true if a result resource is returned.
+	
+	//displayArray( $responseAnswersArray );  //debugging
+	//displayArray( $responsesArray );  // debugging
 
 
-					if ( $result ) { // If it ran OK, display the records.
+	//loop through each response
 
-						//display each user id and their answers
+	for ( $i=0; $i < count( $responsesArray ); $i++ ) {
 
-						while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) ) {   // loop through each user id
+		echo "<div class='container'>";
+		echo  "<h4>User ID: " .$responsesArray[$i]["id"] ."   <br> Email: " .$responsesArray[$i]["email"] ."</h4>";  //could add date and time.,.....
+		echo "</div>";
 
-								$id = $row["users_id"];
-								//echo $id;
-								$userArray = getUserInfo($id);
-								//print_r($userArray);
-								//echo $userArray[0]["first_name"];
-								echo "<div class='container'>";
-								echo  "<h4>Name: " .$userArray[0]["first_name"] ." " .$userArray[0]["last_name"] ."</h4>";
-								echo "</div>";
+		echo '<div class="container">';
+		echo '<table class="table table-hover table-striped ">';
+		echo '<thead>';
+		echo '<tr>';
+		echo   '<th>Question</th>';
+		echo  '<th>Response</th>';
+		echo  '</tr>';
+		echo '</thead>';
+		echo '<tbody>';
 
-								echo '<div class="container">';
-									echo '<table class="table table-hover table-striped ">';
-								     echo '<thead>';
-								       echo '<tr>';
-										       echo   '<th>Question</th>';
-										        echo  '<th>Response</th>';
-										    echo  '</tr>';
-								     echo '</thead>';
-								     echo '<tbody>';
+					//loop through each question / response
+					foreach ( $questionArray as $value )  {   // a row for each quesiton
 
-								     //loop through each question / response
+							echo "<tr>";
+							echo  "<td>";
+							echo $value["question"];
+							echo "</td>";
+							echo  "<td>";
 
-								     foreach ($questionArray as $value) {
+								for ( $y=0;$y<count( $responseAnswersArray );$y++ ) {
 
-
-												     	echo "<tr>";
-												     	echo  "<td>";
-															echo $value["question"];
-															echo "</td>";
-
-
-															echo  "<td>";
-															for ($i=0;$i<count($responseAnswersArray);$i++)   {
-
-
-																		if ($responseAnswersArray[$i]["question_id"]==$value["id"])
-																		echo $responseAnswersArray[$i]["text"];
-
-															}
-
-															//echo $responseAnswersArray["question_id"==1];
-															echo "</td>";			
-															echo "</tr>";
-
-								     }  //finsish  loop
+										if ( $responseAnswersArray[$y]["question_id"]==$value["id"] && $responseAnswersArray[$y]["response_id"]==$responsesArray[$i]["id"]) {
+										echo $responseAnswersArray[$y]["text"];
 										
-
-											echo "</tbody>";
-   										echo "</table>";
-								     	# code...
+										}
 
 
+								}  //end response answer loop
+							
 
 
-   							//debugging
-
-   							/*			
-								echo "<br><pre>";
-								print_r($responseAnswersArray);
+							echo "</td>";
+							echo "</tr>";
 
 
-								echo "</pre>";
-								echo "<br><pre>";
+					} //end foreach quesiton and response
 
-								print_r($questionArray);
-								echo "</pre>";
+			echo "</tbody>";
+			echo "</table>";
+			echo "</div>";
 
-								*/
-
-
+	} //end of response loop
 
 
-
-								//echo array_search(["question_id"] => 1, $responseAnswersArray); 
-
-								//end debugging
-						}
-
-
-					}  else {
-							echo "unable to get user ids from response table";
-					}
-
-		} else {
-
-			echo "unable to retirve all respnses and put them into an array";
-
-		}
-
-mysql_close(); // Close the database connection.
+	
 
 ?>
 
