@@ -26,8 +26,8 @@ include './include/header.inc';
 					<div class="col-sm-3">
 						<img class="img-responsive center-block" src="images/glasses.png" alt="Generic placeholder image">
 						<br />
-						<h2>View</h2>
-						
+						<h2>View</h2> 
+ <a href="./feeds/index.xml"> <img src="./images/rss.gif" width="36" height="14"></a>
 						<p>
 							View current survey results, subscibe to an out-dated RSS feed and more....</p>
 						<p>

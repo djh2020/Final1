@@ -1,0 +1,9 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+	<rss version="2.0">
+		<channel>
+			<title>Latest Survey Results</title>
+			<link>http://darrellhart.com/Final1/view/</link>
+			<description>List latest president activity</description>
+			<language>en-us</language>
+				<item>							<title>running</title>							<link>localhost:8888/Final1/view_survey_details.php?id=1</link>							<description>First Survey</description>				</item></channel>
+ </rss>

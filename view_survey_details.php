@@ -35,9 +35,13 @@ $id = $_GET['id'];
 
   <?php
 
-$query = "SELECT id, status, start_date, end_date, description , created FROM surveys WHERE id = " . $id;
+//get survey by id
 
-$result = @mysql_query( $query ); // Run the query. should return true if a result resource is returned.
+
+$result = getSurveyByID($id);
+//$query = "SELECT id, status, start_date, end_date, description , created FROM surveys WHERE id = " . $id;
+
+//$result = @mysql_query( $query ); // Run the query. should return true if a result resource is returned.
 
 if ( $result ) { // If it ran OK, display the records.
 

@@ -8,7 +8,19 @@ include './include/header.inc';
 ?>
 <div class="container">
 
-	<h1>Participate</h1>
+	<h1>Participate
+	<?php 
+
+					
+		if(!$_SESSION['sess_userID']) {
+
+			echo " <small>(login / registration required) " ;
+		}
+		
+	?>
+
+
+	</h1>
  <hr />
 </div>
 
@@ -65,8 +77,13 @@ if ( $result ) { // If it ran OK, display the records.
 		echo "</td>";
 
 		echo  "<td>";
-		echo " <a class='enabled' href='./particpate_in_survey.php?id="  .  $row["id"]    ."'>Participate</a>";
-		echo "</td>";
+		if ($_SESSION['sess_userID']) {   //user is logged in
+			echo " <a class='enabled' href='./particpate_in_survey.php?id="  .  $row["id"]    ."'>Participate</a>";
+		} else {
+				echo " <a class='disabled' href='./particpate_in_survey.php?id="  .  $row["id"]    ."'>Participate</a>";
+
+		}
+	echo "</td>";
 		echo "</tr>";  // end row
 
 		//echo "<li><div id='"  .$i     ."'>". $row["user_name"] .",". $row["first_name"] .",". $row["last_name"] .",". $row["type"] ."</div></li>";
