@@ -196,7 +196,8 @@ echo "</table>";
 
 	for ( $i=0; $i < count( $responsesArray ); $i++ ) {
 
-		echo "<div class='container'>";
+		if ($id == $responsesArray[$i]["survey_id"] ) {  //id matches survey id
+			echo "<div class='container'>";
 		echo  "<h4>User ID: " .$responsesArray[$i]["id"] ."   <br> Email: " .$responsesArray[$i]["email"] ."</h4>";  //could add date and time.,.....
 		echo "</div>";
 
@@ -242,6 +243,12 @@ echo "</table>";
 			echo "</div>";
 
 	} //end of response loop
+
+
+
+}  // end if
+
+		
 
 
 	

@@ -29,8 +29,8 @@ if(isset($_POST['user_name'])){
 									$_SESSION['sess_userlevel'] = $row[1];
 									$_SESSION['sess_userID'] = $row[0];
 									$hash = $row[6];
-											if (password_verify($pass, $hash)) {  //password is valid  $pass = what was provided as input, $hash is what is stored in db
-							
+										//	if (password_verify($pass, $hash)) {  //password is valid  $pass = what was provided as input, $hash is what is stored in db
+										if (md5($pass) == $hash) {  //password is valid  $pass = what was provided as input, $hash is what is stored in db
 											//print_r($row);
 											//print_r($_SESSION);
 											header("Location: http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/"."index.php");

@@ -62,17 +62,17 @@ $questionArray = getSurveyQuestions($id);  //get survey questions
 						if ($potentailAnswersArray[0]["response_type"] == "text"    ) {
 						//	echo "its a text input";# code...
 
-							echo "<input type='text' name='" .$potentailAnswersArray[0]["question_id"]     ."'>"   ."</input>";
+							echo "<input type='text' name='" .$potentailAnswersArray[0]["question_id"]     ."'>" ;
 
 
 
 						}  else if ($potentailAnswersArray[0]["response_type"] == "radio"  ) {
 
 							//echo "its a radio input";# code...
-								echo "<div class='radio'>";
+								
 								for ($y=0; $y <count($potentailAnswersArray) ; $y++) { 
-
-									echo "<input type='radio' name='" .$potentailAnswersArray[0]["question_id"]  ."'" ." value='" . $potentailAnswersArray[$y]["response_value"]    ."'>" .$potentailAnswersArray[$y]["response_value"]   ."</input>";
+										echo "<div class='radio'>";
+									echo "<input type='radio' name='" .$potentailAnswersArray[0]["question_id"]  ."'" ." value='" . $potentailAnswersArray[$y]["response_value"]    ."'>" .$potentailAnswersArray[$y]["response_value"] ;
 								   
 								echo "</div>";
 								//echo "i=" .$i;
@@ -100,7 +100,7 @@ $questionArray = getSurveyQuestions($id);  //get survey questions
 					echo "</pre>";
 
 					*/
-					echo "</td";
+					echo "</td>";
 
 					echo "</tr>";  //end row
 
@@ -116,7 +116,7 @@ $questionArray = getSurveyQuestions($id);  //get survey questions
 
 	</tbody>
   </table>
-  <input name="survey_id" type="hidden" value=" <?php echo $surveyArray[0]["id"]; ?>     "></input>
+  <input name="survey_id" type="hidden" value=" <?php echo $surveyArray[0]["id"]; ?>     ">
   <button type="submit" class="btn btn-success btn-block" >
 		Submit
 

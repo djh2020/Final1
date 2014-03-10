@@ -98,8 +98,8 @@ if ( isset( $_POST['submit'] ) ) { // Handle the form.
 
 	if ( $fname && $lname && $email && $username && $password && !$exists ) { // If everything's okay.
 		// Register the user.
-		//$password_1 = md5( $password_1 );
-		$password_1 = password_hash($password_1, PASSWORD_DEFAULT);
+		$password_1 = md5( $password_1 );
+		//$password_1 = password_hash($password_1, PASSWORD_DEFAULT);
 
 
 

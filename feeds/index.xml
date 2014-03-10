@@ -5,5 +5,5 @@
 			<link>http://darrellhart.com/Final1/view/</link>
 			<description>List latest president activity</description>
 			<language>en-us</language>
-				<item>							<title>running</title>							<link>localhost:8888/Final1/view_survey_details.php?id=1</link>							<description>First Survey</description>				</item></channel>
+				<item>							<title>First Survey</title>							<link>localhost:8888/Final1/view_survey_details.php?id=1</link>							<description>This survey was created on 2014-02-24 00:00:00 and has a status of: running</description>				</item>				<item>							<title>Ballard Hotel - Customer Satisfaction Survey</title>							<link>localhost:8888/Final1/view_survey_details.php?id=3</link>							<description>This survey was created on 2014-03-05 00:00:00 and has a status of: running</description>				</item></channel>
  </rss>

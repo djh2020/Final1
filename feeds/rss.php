@@ -35,9 +35,9 @@ print_r($surveyArray);
 for ( $i=0; $i < count( $surveyArray ); $i++ ) {
 
 	$createXML .= "\t\t\t\t<item>";
-	$createXML .= "\t\t\t\t\t\t\t<title>" .$surveyArray[$i]["status"] ."</title>";
+	$createXML .= "\t\t\t\t\t\t\t<title>" .$surveyArray[$i]["description"]."</title>";
 	$createXML .= "\t\t\t\t\t\t\t<link>" .$rootURL .$surveyArray[$i]["id"] ."</link>";
-	$createXML .= "\t\t\t\t\t\t\t<description>" .$surveyArray[$i]["description"] ."</description>";
+	$createXML .= "\t\t\t\t\t\t\t<description>This survey was created on "  .$surveyArray[$i]["created"]    ." and has a status of: " .$surveyArray[$i]["status"] ."</description>";
 	$createXML .= "\t\t\t\t</item>";
 	// code...
 }
